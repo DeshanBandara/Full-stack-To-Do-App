@@ -14,7 +14,7 @@ const Landing = () => {
                 <p className='landingPara'>Now you can manage your works as you go.</p>
                 <div className='btnContainer'>
                     <Link to={'/Register'}><button className='registerBtn'>Register</button></Link>
-                    <Link to={'#'}><button className='loginBtn'>Login</button></Link>
+                    <Link to={'/Login'}><button className='loginBtn'>Login</button></Link>
                 </div>
             </div>
             <img src={Bg} alt='homeImage' className='bg' />
