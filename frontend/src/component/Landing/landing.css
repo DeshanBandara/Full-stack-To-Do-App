@@ -37,7 +37,7 @@
 
 .hello {
     font-size: 1.75;
-    font-weight: 100;
+    font-weight: 200;
 }
 
 .landingName {
@@ -46,7 +46,7 @@
 
 .landingPara {
     font-size: medium;
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: 1px;
     margin-left: 0.25rem;
 }
@@ -55,7 +55,8 @@
     background: white;
     margin: 1rem;
     padding: 0.75rem 1.5rem;
-    border-color: black;
+    background: white;
+    border-color: rgb(0, 0, 0);
     border-radius: 2rem;
     cursor: pointer;
 }

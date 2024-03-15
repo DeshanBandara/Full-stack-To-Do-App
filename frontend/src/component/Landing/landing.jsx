@@ -2,7 +2,7 @@
 import React from 'react'
 import './landing.css'
 import {Link} from 'react-router-dom'
-import Bg from '../../assets/image1.jpeg'
+import Bg from '../../assets/2371075.webp'
 
 const Landing = () => {
   return (
