@@ -3,12 +3,11 @@
     max-width: 75rem;
     margin: 0 auto;
     overflow: hidden;
-    position: relative;
+
 }
 
 .landingContainer {
-    height: 80vh;
-    width: 95vw;
+    height: 100vh;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -16,16 +15,19 @@
 }
 
 .bg {
+    position: absolute;
+    top: 4rem;
     right: 0;
-    /*padding: 5rem 0 5rem 0;*/
-    object-fit: cover;
+    z-index: -1;
+    padding-left: 4rem;
     height: 75vh;
+    max-width: 110vw;
 }
 
 .landingContent {
     height: 120vh;
     width: 100vw;
-    padding: 2rem;
+    padding: 4rem;
     font-size: 3rem;
     font-weight: 700;
     display: flex;
@@ -65,5 +67,23 @@
     border-radius: 2rem;
     color: white;
     cursor: pointer;
+}
+
+@media screen and (max-width:840px) {
+    .bg {
+        right: -10vw;
+    }
+    .landingContent{
+        font-size: 10vw;
+    }
+    .hello{
+        font-size: 4.5vw;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .bg {
+        right: -10vw;
+    }
 }
 
