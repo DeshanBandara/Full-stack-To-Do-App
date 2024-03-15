@@ -1,16 +1,19 @@
 /* eslint-disable no-unused-vars */
 import { useState } from 'react'
 import './App.css'
-import Landing from './component/Landing/landing'
-import Signup from './component/Signup/signup'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Landing from './component/Landing/landing' //Landing component
+import Register from './component/Register/register' //Register component
 
 
 function App() {
   return (
-    <>
-      <Landing />
-      <Signup />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path='/' Component={Landing} />
+        <Route path='/Register' Component={Register} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
