@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import './signup.css'
+import './register.css'
 
 const Signup = () => {
   return (
