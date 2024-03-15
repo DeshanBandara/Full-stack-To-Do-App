@@ -13,8 +13,8 @@ const Landing = () => {
                 <span className='landingText'>This is <span className='landingName'>To Do App</span></span>
                 <p className='landingPara'>Now you can manage your works as you go.</p>
                 <div className='btnContainer'>
-                    <button className='registerBtn'>Register</button>
-                    <button className='loginBtn'>Login</button>
+                    <Link to={'/Register'}><button className='registerBtn'>Register</button></Link>
+                    <Link to={'#'}><button className='loginBtn'>Login</button></Link>
                 </div>
             </div>
             <img src={Bg} alt='homeImage' className='bg' />
