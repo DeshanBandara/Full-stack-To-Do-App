@@ -1,0 +1,87 @@
+#register {
+    margin: 0 ;
+    padding: 0;
+}
+
+body {
+    height: 120vh;
+    background-image: linear-gradient(#efcefa, #9a4ba8);
+}
+
+.containerRegister {
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 75px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    align-items: center;
+}
+
+.registerH2 {
+    font-size: 27px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.registerHr {
+    height: 2px;
+    border: none;
+    margin-bottom: 20px;
+    background: #707070;
+}
+
+.registerForm {
+    width: 100%;
+}
+
+.registerDiv {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.nameLabel, .emailLabel, .passwordLabel  {
+    font-weight: 400;
+    display: block;
+}
+
+.inputName, .inputEmail, .inputPassword {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-left: 0;
+    display: block;
+    flex-direction: column;
+}
+
+.registerFormBtn {
+    padding: 10px;
+    background-color: rgb(30, 30, 30);
+    color: white;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+
+@media screen and (max-width:600px) {
+    .container {
+        width: 300px;
+
+    }
+}
+
+@media screen and (max-width:480px) {
+    .container {
+        width: 250px;
+        padding: 30;
+        margin-left: 20px;
+    }
+}
+
