@@ -1,0 +1,15 @@
+Frontend
+
+1: npm init vite@latest
+2: enter project name (frontend)
+3: then select Library (reaact)
+4: then select language (JavaScript)
+5: cd to the project folder (frontend)
+6: npm install
+7: npm run dev (to run the project)
+
+Backend
+
+1: create folder name backend
+2: npm install express mongoose cors nodemon cookie-parser bcrypt jsonwebtoken
+3: create a fikle inside the folder and write the code there
