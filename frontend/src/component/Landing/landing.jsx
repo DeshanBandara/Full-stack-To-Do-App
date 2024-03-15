@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import './landing.css'
-import {Link} from 'react-scroll'
+import {Link} from 'react-router-dom'
 import Bg from '../../assets/image1.jpeg'
 
 const Landing = () => {
@@ -13,8 +13,8 @@ const Landing = () => {
                 <span className='landingText'>This is <span className='landingName'>To Do App</span></span>
                 <p className='landingPara'>Now you can manage your works as you go.</p>
                 <div className='btnContainer'>
-                    <Link><button className='registerBtn'>Register</button></Link>
-                    <Link><button className='loginBtn'>Login</button></Link>
+                    <button className='registerBtn'>Register</button>
+                    <button className='loginBtn'>Login</button>
                 </div>
             </div>
             <img src={Bg} alt='homeImage' className='bg' />
