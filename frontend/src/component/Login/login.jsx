@@ -1,11 +1,33 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 import './login.css'
+import axios from 'axios'
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const navigate = useNavigate()
+
+  axios.defaults.withCredentials = true; // To connect with backend cookies
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    axios.post(`http://localhost:3001/Login`, {email, password})
+    .then(res => {
+      //console.log(res.data)
+      //navigate('/Login')
+      if (res.data.Status === "Success") {
+        if (res.data.role === "admin") {
+          navigate('/Dashboard')
+        } else {
+          navigate('/Home')
+        }
+      }
+    })
+    .catch(err => console.log(err))
+  }
 
   return (
     <section id='login'>
@@ -13,7 +35,7 @@ const Login = () => {
         <div>
           <h2 className='loginH2'>Login</h2>
           <hr className='loginHr' />
-          <form className='loginForm'>
+          <form className='loginForm' onSubmit={handleSubmit}>
             <div className='loginDiv'>
               <label className='emailLabel' htmlFor='email'>Email</label>
               <input
@@ -26,7 +48,7 @@ const Login = () => {
               />
             </div>
             <div>
-              <label className='passwordLabel' htmlFor='name'>Password</label>
+              <label className='passwordLabel' htmlFor='password'>Password</label>
               <input
                 type='password'
                 placeholder='Enter Password'
@@ -37,6 +59,8 @@ const Login = () => {
               />
             </div>
             <button className='submitBtn' type='submit'>Login</button>
+            <p className='loginPara'>Don't have an account</p>
+            <Link to={'/Register'}><button className='loginToRegisterBtn'>Register</button></Link>
           </form>
         </div>
       </div>
