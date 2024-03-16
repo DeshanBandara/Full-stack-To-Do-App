@@ -19,6 +19,30 @@ app.use(cookieParser())
 //MongoDB database link
 mongoose.connect('mongodb://127.0.0.1:27017/employee');
 
+const verifyUser = (req, res, next) => {
+    const token = req.cookies.token;
+    if(!token) {
+        return res.json("Token is missing")
+    } else {
+        jwt.verify(token, "jwt-secret-key", (err, decode) => {
+            if(err) {
+                return res.json("Error with token")
+            } else {
+                if(decode.role === "admin") {
+                    next()
+                } else {
+                    return res.json("Not admin")
+                }
+            }
+        })
+    }
+}
+
+//Call middleware to verify the user
+app.get('/dashboard', verifyUser, (req, res) => {
+    res.json("Success")
+})
+
 app.post('/Register', (req, res) => {
     const {name, email, password} = req.body;
     bcrypt.hash(password, 10)
