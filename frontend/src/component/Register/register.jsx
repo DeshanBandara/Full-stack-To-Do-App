@@ -1,11 +1,23 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 import './register.css'
+import axios from 'axios'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Register = () => {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const navigate = useNavigate()
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    axios.post(`http://localhost:3001/Register`, {name, email, password})
+    .then(res => {
+      navigate('/Login')
+    })
+    .catch(err => console.log(err))
+  }
 
   return (
     <section id='register'>
@@ -13,7 +25,7 @@ const Register = () => {
         <div>
           <h2 className='registerH2'>Register</h2>
           <hr className='registerHr' />
-          <form className='registerForm'>
+          <form className='registerForm' onSubmit={handleSubmit}>
             <div className='registerDiv'>
               <label className='nameLabel' htmlFor='name'>Name</label>
               <input
@@ -48,6 +60,8 @@ const Register = () => {
               />
             </div>
             <button className='registerFormBtn' type='submit'>Register</button>
+            <p className='registerPara'>Already have an account</p>
+            <Link to={'/Login'}><button className='registerTologinBtn'>Login</button></Link>
           </form>
         </div>
       </div>
