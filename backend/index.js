@@ -4,6 +4,7 @@ const cors = require("cors") //Imports CORS (Cross-Origin Resource Sharing) midd
 const jwt = require('jsonwebtoken')
 const cookieParser = require('cookie-parser') //Imports cookie-parser middleware for parsing cookies in HTTP requests.
 const UserModel = require('./models/user.js') //import user.js file
+const TodoModel = require('./models/todo.js')
 const bcrypt = require('bcrypt'); //Imports bcrypt for hashing passwords.
 const { hash } = require("bcrypt")
 
@@ -16,7 +17,7 @@ app.use(cors({
 }))
 app.use(cookieParser())
 
-//MongoDB database link
+// Connection with the MongoDB database
 mongoose.connect('mongodb://127.0.0.1:27017/employee');
 
 const verifyUser = (req, res, next) => {
@@ -39,6 +40,7 @@ const verifyUser = (req, res, next) => {
 }
 
 //Call middleware to verify the user
+//Create the get API
 app.get('/dashboard', verifyUser, (req, res) => {
     res.json("Success")
 })
@@ -75,6 +77,23 @@ app.post('/Login', (req, res) => {
             return res.json("No Record Existed")
         }
     })
+})
+
+//Create the get API for ToDo
+app.get('/get', (req, res) => {
+    TodoModel.find() //All the data
+    .then(result => res.json(result))
+    .catch(err => res.json(err))
+})
+
+//Api for create new task
+app.post('/add', (req, res) => {
+    const task = req.body.task
+    TodoModel.create({
+        task: task
+    })
+    .then(result => res.json(result))
+    .catch(err => res.json(err))
 })
 
 app.listen(3001, () => {

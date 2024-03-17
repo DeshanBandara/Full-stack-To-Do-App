@@ -7,6 +7,8 @@ import Register from './component/Register/register' //Register component
 import Login from './component/Login/login'
 import Dashboard from './component/Dashboard/dashboard'
 import Home from './component/Home/home'
+import Create from './component/CreateTask/createTask'
+import Update from './component/UpdateTask/updateTask'
 
 
 function App() {
@@ -18,6 +20,8 @@ function App() {
         <Route path='/Login' Component={Login} />
         <Route path='/Dashboard' Component={Dashboard} />
         <Route path='/Home' Component={Home} />
+        <Route path='/Create' Component={Create} />
+        <Route path='/Update' Component={Update} />
       </Routes>
     </BrowserRouter>
   )
