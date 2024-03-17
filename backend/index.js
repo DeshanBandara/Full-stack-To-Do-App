@@ -98,7 +98,7 @@ app.post('/add', (req, res) => {
 })
 
 //Api for select items (Root handler)
-app.put(`/update/:id`, (req, res) => {
+app.put(`/select/:id`, (req, res) => {
     const {id} = req.params;
     const {updatedTask} = req.body;
 
