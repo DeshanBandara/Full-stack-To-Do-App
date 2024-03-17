@@ -4,3 +4,93 @@
   padding: 2rem;
   text-align: center;
 }*/
+
+#landing {
+  width: 100vw;
+  max-width: 75rem;
+  margin: 0 auto;
+  overflow: hidden;
+
+}
+
+.landingContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bg {
+  position: absolute;
+  top: 4rem;
+  right: 0;
+  z-index: -1;
+  padding-left: 4rem;
+  height: 75vh;
+  max-width: 110vw;
+}
+
+.landingContent {
+  height: 120vh;
+  width: 100vw;
+  padding: 4rem;
+  font-size: 3rem;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hello {
+  font-size: 1.75rem;
+  font-weight: 100;
+}
+
+.landingName {
+  color: yellow;
+}
+
+.landingPara {
+  font-size: medium;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-left: 0.25rem;
+}
+
+.registerBtn {
+  background: white;
+  margin: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: white;
+  border-color: rgb(0, 0, 0);
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+.loginBtn {
+  background: black;
+  margin: 1rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+@media screen and (max-width:840px) {
+  .bg {
+      right: -10vw;
+  }
+  .landingContent{
+      font-size: 10vw;
+  }
+  .hello{
+      font-size: 4.5vw;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .bg {
+      right: -10vw;
+  }
+}
