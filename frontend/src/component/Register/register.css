@@ -61,9 +61,31 @@ body {
 
 .registerFormBtn {
     padding: 10px;
+    width: 100px;
     background-color: rgb(30, 30, 30);
     color: white;
-    border-radius: 10px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+
+.registerPara {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    display: block;
+    font-size: 15px;
+    text-align: center;
+    font-weight: 300;
+}
+
+.registerToLoginBtn {
+    padding: 10px;
+    width: 100px;
+    background-color: rgb(30, 30, 30);
+    color: white;
+    border-radius: 20px;
     border: none;
     cursor: pointer;
     display: block;
@@ -71,14 +93,14 @@ body {
 }
 
 @media screen and (max-width:600px) {
-    .container {
+    .containerRegister {
         width: 300px;
 
     }
 }
 
 @media screen and (max-width:480px) {
-    .container {
+    .containerRegister {
         width: 250px;
         padding: 30;
         margin-left: 20px;
