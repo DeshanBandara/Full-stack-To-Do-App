@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import './landing.css'
+//import './landing.css'
+import '../../App.css'
 import {Link} from 'react-router-dom'
 import Bg from '../../assets/2371075.webp'
 
