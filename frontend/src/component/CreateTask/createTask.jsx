@@ -7,7 +7,9 @@ const CreateTask = () => {
     const [task, setTask] = useState()
     const handleAdd = () => {
         axios.post(`http://localhost:3001/add`, {task: task})
-        .then(result => console.log(result.data))
+        .then(result => {
+            location.reload() //Automatically update the detail with clicking Add new task
+        }) 
         .catch(err => console.log(err))
     }
   return (
