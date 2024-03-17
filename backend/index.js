@@ -8,11 +8,12 @@ const TodoModel = require('./models/todo.js')
 const bcrypt = require('bcrypt'); //Imports bcrypt for hashing passwords.
 const { hash } = require("bcrypt")
 
+// Enable all HTTP methods for cors
 const app = express()
 app.use(express.json())
 app.use(cors({
     origin: [`http://localhost:5173`], //access to the frontend side trough this link
-    methods: ["GET", "POST"],
+    methods: ["GET", "POST", "PUT","DELETE"],
     credentials: true
 }))
 app.use(cookieParser())
@@ -96,6 +97,25 @@ app.post('/add', (req, res) => {
     .catch(err => res.json(err))
 })
 
+//Api for select items (Root handler)
+app.put(`/update/:id`, (req, res) => {
+    const {id} = req.params;
+    const {updatedTask} = req.body;
+
+    TodoModel.findByIdAndUpdate({_id: id}, {check: true})
+    .then(result => res.json(result))
+    .catch(err => res.json(err))
+})
+
+//API for Delete items
+app.delete(`/delete/:id`, (req, res) => {
+    const {id} = req.params
+
+    TodoModel.findByIdAndDelete({_id:id})
+    .then(result => res.json(result))
+    .catch(err => res.json(err))
+})
+
 app.listen(3001, () => {
-    console.log("Server is Running");
+    console.log("Server is Running on port 3001");
 })
