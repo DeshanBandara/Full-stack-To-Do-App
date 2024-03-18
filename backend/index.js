@@ -116,6 +116,44 @@ app.delete(`/delete/:id`, (req, res) => {
     .catch(err => res.json(err))
 })
 
+//-----------------------------------------------------------------------------------------------------
+//Create API for create task
+app.post(`/createTask`, (req, res) => {
+    TodoModel.create(req.body)
+    .then(result => req.json(result))
+    .catch(err => res.json(err))
+})
+
+app.get(`/getTask/:id`, (req, res) => {
+    const id = req.params.id;
+
+    TodoModel.findById({_id: id})
+    .then(results =>  res.json(results))
+    .catch(err => res.json(err))
+})
+
+app.put('/updateTask/:id', (req, res) => {
+    const id = req.params.id
+    TodoModel.findByIdAndUpdate({_id: id},
+        {
+            task: req.body.task,
+            description: req.body.description,
+            dueDate: req.body.dueDate,
+        },
+        {new: true} // This ensures that the updated document is returned
+        )
+    .then(users => res.json(results))
+    .catch(err => res.json(err))
+})
+
+app.delete('/deleteTask/:id', (req, res) => {
+    const id = req.params.id
+
+    TodoModel.findByIdAndDelete({_id:id})
+    .then(result => res.json(result))
+    .catch(err => res.json(err))
+})
+
 app.listen(3001, () => {
     console.log("Server is Running on port 3001");
 })
