@@ -2,17 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.todoItem {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #090909f0;
-    padding: 10px;
-    color: white;
-    width: 400px;
-    margin-bottom: 10px;
+    margin-top: 5rem;
 }
 
 .checkBox {
@@ -24,15 +14,122 @@
     margin-right: 5px;
     font-size: 15px;
 }
-
-.todoItem div .icon {
-    margin: 0px 5px 0px 4px;
-}
-
-.todoItem div .icon {
-    cursor: pointer;
-}
-
 .line_trough {
     text-decoration: line-through;
+}
+
+.containerUsers {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .UserTable {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .UserTable th, .UserTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .UserTable th {
+    background-color: #f2f2f2;
+    text-align: left;
+  }
+  
+  .UserTable tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .UserTable tbody tr:hover {
+    background-color: #ddd;
+  }
+  
+  .editBtn {
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  .editBtn:hover {
+    background-color: #0056b3;
+  }
+
+  .deleteBtn {
+    padding: 5px 10px;
+    border: none;
+    background-color: #f0584a;
+    color: white;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  .deleteBtn:hover {
+    background-color: #b31800;
+  }
+
+  .addBtn {
+    padding: 5px;
+    width: 100px;
+    background: green;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    margin: 10px;
+    cursor: pointer;
+  }
+
+  .icon {
+    margin-right: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    color: #ddd;
+}
+
+@media screen and (max-width:840px) {
+  .UserTable th,
+  .UserTable td {
+    padding: 4px;
+    font-size: 12px;
+  }
+
+  .editBtn,
+  .deleteBtn {
+    padding: 3px 6px;
+    font-size: 10px;
+  }
+
+  .addBtn {
+    padding: 3px;
+    width: 70px; 
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width:480px) {
+  
+  .UserTable {
+    overflow-x: auto; 
+  }
+
+  .UserTable th,
+  .UserTable td {
+    padding: 3px; 
+    font-size: 10px;
+  }
+
+  .editBtn,
+  .deleteBtn,
+  .addBtn {
+    padding: 2px 4px; 
+    font-size: 10px; 
+  }
+
+  .addBtn {
+    width: 60px; 
+  }
 }

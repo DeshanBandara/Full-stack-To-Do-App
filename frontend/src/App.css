@@ -45,7 +45,7 @@
 
 .hello {
   font-size: 1.75rem;
-  font-weight: 100;
+  font-weight: 200;
 }
 
 .landingName {
@@ -78,6 +78,61 @@
   cursor: pointer;
 }
 
+
+
+
+ /*----------------------------------------------Create task---------------------------------------------------*/
+  
+ #create {
+  margin-top: 100px;
+}
+
+.containerCreate {
+  width: 80%;
+  margin: 0 auto;
+}
+
+form {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.addD {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+input {
+  max-width: 65rem;
+}
+
+.formControl {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.submitBtn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.submitBtn:hover {
+  background-color: #0056b3;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
+
 @media screen and (max-width:840px) {
   .bg {
       right: -10vw;
@@ -88,10 +143,30 @@
   .hello{
       font-size: 4.5vw;
   }
+  .containerCreate {
+    width: 90%;
+  }
+
+  form {
+    padding: 15px;
+  }
+
+  input {
+    max-width: 85%;
+  }
 }
 
 @media screen and (max-width:480px) {
   .bg {
       right: -10vw;
   }
+
+  .formControl {
+    padding: 8px;
+  }
+
+  .submitBtn {
+    padding: 8px 15px;
+  }
+
 }
