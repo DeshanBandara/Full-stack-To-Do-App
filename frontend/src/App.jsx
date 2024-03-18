@@ -9,6 +9,7 @@ import Dashboard from './component/Dashboard/dashboard'
 import Home from './component/Home/home'
 import Create from './component/CreateTask/createTask'
 import Update from './component/UpdateTask/updateTask'
+import TaskDetails from './component/TaskDetails/taskDetails'
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path='/Home' Component={Home} />
         <Route path='/Create' Component={Create} />
         <Route path='/Update' Component={Update} />
+        <Route path='/taskDetails/:id' Component={TaskDetails} />
       </Routes>
     </BrowserRouter>
   )
