@@ -4,16 +4,14 @@
   padding: 2rem;
   text-align: center;
 }*/
-/*----------------------------- Landing Page -----------------------------*/
+/*---------------------------------------------------------------- Landing Page ------------------------------------------------------------*/
 
 #landing {
   width: 100vw;
   max-width: 75rem;
   margin: 0 auto;
   overflow: hidden;
-
 }
-
 .landingContainer {
   height: 100vh;
   display: flex;
@@ -21,9 +19,8 @@
   align-items: center;
   justify-content: space-between;
 }
-
 .bg {
-  position: absolute;
+  /*position: absolute;*/
   top: 4rem;
   right: 0;
   z-index: -1;
@@ -31,7 +28,6 @@
   height: 75vh;
   max-width: 110vw;
 }
-
 .landingContent {
   height: 120vh;
   width: 100vw;
@@ -42,19 +38,17 @@
   flex-direction: column;
   justify-content: center;
 }
-
 .hello {
   font-size: 1.75rem;
   font-weight: 200;
 }
-
 .landingName {
-  color: yellow;
+  color: #00cc99;
 }
 
 .landingPara {
   font-size: medium;
-  font-weight: 400;
+  font-weight: 300;
   letter-spacing: 1px;
   margin-left: 0.25rem;
 }
@@ -68,20 +62,30 @@
   border-radius: 2rem;
   cursor: pointer;
 }
-
+.registerBtn:hover {
+  font-size: 15px;
+  font-weight: 300;
+}
 .loginBtn {
-  background: black;
+  background: rgb(58, 58, 61);
   margin: 1rem;
   padding: 0.75rem 1.5rem;
   border-radius: 2rem;
   color: white;
   cursor: pointer;
 }
+.loginBtn:hover {
+  background: rgb(0, 0, 0);
+  font-size: 15px;
+  font-weight: 300;
+}
+
+/*------------------------------------------------------------------ Register Page -------------------------------------------------------*/
 
 
 
 
- /*----------------------------------------------Create task---------------------------------------------------*/
+ /*------------------------------------------------------------------ Create task -------------------------------------------------------*/
   
  #create {
   margin-top: 100px;
