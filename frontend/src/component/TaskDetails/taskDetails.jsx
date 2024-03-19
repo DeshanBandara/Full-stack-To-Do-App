@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react'
 import '../../App.css'
+import Datetime from 'react-datetime';
+import 'react-datetime/css/react-datetime.css';
 import { useParams, useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
@@ -9,7 +11,7 @@ const TaskDetails = () => {
     const {id} = useParams()
     const [task, setTask] = useState('')
     const [description, setDescription] = useState('')
-    const [dueDate, setDueDate] = useState('')
+    const [dueDate, setDueDate] = useState(null)
     const [status, setStatus] = useState('')
     const navigate = useNavigate()
     const [todos, setTodos] = useState([])
@@ -22,7 +24,7 @@ const TaskDetails = () => {
             const { task, description, dueDate, check } = result.data
             setTask(task)
             setDescription(description)
-            setDueDate(dueDate)
+            setDueDate(new Date(dueDate)) //Convert string to date object
             setStatus(check ? 'Complete' : 'Not Complete')
         })
         .catch(err => console.log(err))
@@ -56,6 +58,10 @@ const TaskDetails = () => {
                     <Link to={'/Home'}><button>Back</button></Link>
                 </div>
                 <div className='addD'>
+                    <label htmlFor='status'>Status</label>
+                    <p style={{color: status === 'Complete' ? 'green' : 'red'}}>{status}</p>
+                </div>
+                <div className='addD'>
                     <label htmlFor='name'>Title</label>
                     <input type='text' placeholder='Enter Task' className='formControl' value={task || ''} onChange={(e) => setTask(e.target.value)}/>
                 </div>
@@ -65,11 +71,11 @@ const TaskDetails = () => {
                 </div>
                 <div className='addD'>
                     <label htmlFor='age'>Due Date</label>
-                    <input type='text' placeholder='YYYY-MM-DD' className='formControl' value={dueDate  || ''} onChange={(e) => setDueDate(e.target.value)} />
-                </div>
-                <div className='addD'>
-                    <label htmlFor='status'>Status</label>
-                    <p style={{color: status === 'Complete' ? 'green' : 'red'}}>{status}</p>
+                    <Datetime
+                        value={dueDate}
+                        onChange={(date) => setDueDate(date)}
+                        inputProps={{ placeholder: 'Select Date and Time' }}
+                    />
                 </div>
                 <button className='submitBtn'>Update</button>
                 <button className='submitBtn' onClick={() => handleDelete(todos._id)}>Delete</button>
