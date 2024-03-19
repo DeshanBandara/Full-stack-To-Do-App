@@ -4,7 +4,7 @@
 }
 
 body {
-    height: 120vh;
+    height: auto;
     background-image: linear-gradient(#efcefa, #9a4ba8);
 }
 
