@@ -4,6 +4,7 @@
 }*/
 
 body {
-  height:  auto;
+  height: auto;
+  max-height: fit-content;
   font-family: 'poppins', sans-serif;
 }
