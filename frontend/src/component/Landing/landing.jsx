@@ -1,6 +1,6 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import React from 'react'
-//import './landing.css'
 import '../../App.css'
 import {Link} from 'react-router-dom'
 import Bg from '../../assets/2371075.webp'
@@ -11,8 +11,8 @@ const Landing = () => {
         <div className='landingContainer'>
             <div className='landingContent'>
                 <span className='hello'>Hello,</span>
-                <span className='landingText'>This is <span className='landingName'>To Do App</span></span>
-                <p className='landingPara'>Now you can manage your works as you go.</p>
+                <span className='landingText'>What's <span className='landingName'>Next?</span></span>
+                <p className='landingPara'>This is your to-do application. Now you can manage your work for better management.</p>
                 <div className='btnContainer'>
                     <Link to={'/Register'}><button className='registerBtn'>Register</button></Link>
                     <Link to={'/Login'}><button className='loginBtn'>Login</button></Link>
