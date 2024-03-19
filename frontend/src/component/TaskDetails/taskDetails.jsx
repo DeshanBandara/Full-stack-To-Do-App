@@ -13,6 +13,7 @@ const TaskDetails = () => {
     const [status, setStatus] = useState('')
     const navigate = useNavigate()
     const [todos, setTodos] = useState([])
+    
 
     useEffect(() => {
         axios.get(`http://localhost:3001/getTask/${id}`)
