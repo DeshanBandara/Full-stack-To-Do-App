@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from 'react'
 import './home.css'
 import '../../App.css'
+import Datetime from 'react-datetime';
+import 'react-datetime/css/react-datetime.css';
 import CreateTask from '../CreateTask/createTask'
 import axios from 'axios'
 import {BsCircleFill, BsFillCheckCircleFill, BsFillTrashFill} from 'react-icons/bs'
@@ -14,7 +16,14 @@ const Home = () => {
   
   useEffect(() => {
     axios.get(`http://localhost:3001/get`)
-    .then(result => setTodos(result.data))
+    .then(result => {
+      //setTodos(result.data)
+      const updateTodos = result.data.map(todo => ({
+        ...todo,
+        dueDate: new Date(todo.dueDate)
+      }))
+      setTodos(updateTodos)
+    })
     .catch(err => console.log(err))
   }, [])
 
@@ -75,7 +84,14 @@ const Home = () => {
                             </div>
                           </td>
                           <td className={todo.check ? "line_trough" : ""}>{todo.task}</td>
-                          <td className={todo.check ? "line_trough" : ""}>{todo.dueDate}</td>
+                          <td className={todo.check ? "line_trough" : ""}>
+                            <Datetime 
+                              value = {todo.dueDate}
+                              dateFormat = "YYYY-MM-DD"
+                              timeFormat="HH:MM:SS"
+                              inputProps={{readOnly: true}}
+                            />
+                          </td>
                           <td>
                               <Link to={`/taskDetails/${todo._id}`}><button className='editBtn'>Details</button></Link>
                               <button className='deleteBtn' onClick={() => handleDelete(todo._id)}>Delete</button>
