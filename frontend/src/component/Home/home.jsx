@@ -18,20 +18,29 @@ const Home = () => {
     axios.get(`http://localhost:3001/get`)
     .then(result => {
       //setTodos(result.data)
-      const updateTodos = result.data.map(todo => ({
+      const updatedTodos = result.data.map(todo => ({
         ...todo,
         dueDate: new Date(todo.dueDate)
       }))
-      setTodos(updateTodos)
+      setTodos(updatedTodos)
     })
     .catch(err => console.log(err))
   }, [])
 
   //Select items using check box
   const handleSelect = (id) => {
+    const updatedTodos = todos.map(todo => {
+      if (todo._id === id) {
+        return {
+          ...todo,
+          check: !todo.check //if todo.check is true it becomes false, and vise versa
+        }
+      }
+      return todo
+    })
     axios.put(`http://localhost:3001/select/${id}`)
-    .then(result => {
-      location.reload()
+    .then (result => {
+      setTodos(updatedTodos)
     })
     .catch(err => console.log(err))
   }
@@ -83,18 +92,23 @@ const Home = () => {
                               }
                             </div>
                           </td>
-                          <td className={todo.check ? "line_trough" : ""}>{todo.task}</td>
-                          <td className={todo.check ? "line_trough" : ""}>
+                          
+                          <td>
+                            <p>{todo.task}</p>
+                            <p style={{ color: todo.check ? "green" : "red"}}>{todo.check ? "Complete" : "Not Complete"}</p>
+                          </td>
+
+                          <td>
                             <Datetime 
                               value = {todo.dueDate}
-                              dateFormat = "YYYY-MM-DD"
-                              timeFormat="HH:MM:SS"
+                              dateFormat = "YYYY-MM-DD  "
+                              timeFormat="    HH:MM"
                               inputProps={{readOnly: true}}
                             />
                           </td>
                           <td>
                               <Link to={`/taskDetails/${todo._id}`}><button className='editBtn'>Details</button></Link>
-                              <button className='deleteBtn' onClick={() => handleDelete(todo._id)}>Delete</button>
+                              <button className='deleteBtn' onClick={() => handleDelete(todo._id)}><BsFillTrashFill /></button>
                           </td>
                         </tr>
                       ))
