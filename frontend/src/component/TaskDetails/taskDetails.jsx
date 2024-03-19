@@ -13,6 +13,8 @@ const TaskDetails = () => {
     const [description, setDescription] = useState('')
     const [dueDate, setDueDate] = useState(null)
     const [status, setStatus] = useState('')
+    const [check, setCheck] = useState('')
+    const [error, setError] = useState('')
     const navigate = useNavigate()
     const [todos, setTodos] = useState([])
     
@@ -21,54 +23,73 @@ const TaskDetails = () => {
         axios.get(`http://localhost:3001/getTask/${id}`)
         .then(result => {
             console.log(result.data)
-            const { task, description, dueDate, check } = result.data
+            const { task, status, description, dueDate, check } = result.data
             setTask(task)
+            setStatus(status)
             setDescription(description)
             setDueDate(new Date(dueDate)) //Convert string to date object
-            setStatus(check ? 'Complete' : 'Not Complete')
+            setCheck(check ? 'Complete' : 'Not Complete')
         })
         .catch(err => console.log(err))
     }, [id])
 
     const Update = (e) => {
         e.preventDefault()
-        axios.put(`http://localhost:3001/updateTask/${id}`, {task, description, dueDate})
-        .then(result => {
-            console.log(result)
-            location.reload()
-        })
-        .catch(err => console.log(err))
+        if(!task || !status || !description || !dueDate){
+            setError('Please Fill in all fields!')
+        } else {
+            axios.put(`http://localhost:3001/updateTask/${id}`, {task, status, description, dueDate})
+            .then(result => {
+                console.log(result)
+                location.reload()
+            })
+            .catch(err => console.log(err))
+        }
+        
     }
 
     //Delete Items
-  const handleDelete = () => {
+const handleDelete = () => {
     axios.delete(`http://localhost:3001/deleteTask/${id}`)
     .then(result => {
-      navigate('/Home')
+    navigate('/Home')
     })
     .catch(err => console.log(err))
-  }
+}
 
-  return (
+return (
     <div id='create'>
-          <div className='containerCreate'>
-              <form onSubmit={Update}>
+        <div className='containerCreate'>
+                <div>
+                <Link to={'/Home'}><button>Back</button></Link>
+                </div>
+
+            <form onSubmit={Update}>
                 <div>
                     <h2>Task Details</h2>
-                    <Link to={'/Home'}><button>Back</button></Link>
                 </div>
+
+                {error && <div className='error'>{error}</div>}
+
                 <div className='addD'>
-                    <label htmlFor='status'>Status</label>
-                    <p style={{color: status === 'Complete' ? 'green' : 'red'}}>{status}</p>
+                    <h3 style={{color: check === 'Complete' ? 'green' : 'red'}}>{check}</h3>
                 </div>
+                
                 <div className='addD'>
                     <label htmlFor='name'>Title</label>
                     <input type='text' placeholder='Enter Task' className='formControl' value={task || ''} onChange={(e) => setTask(e.target.value)}/>
                 </div>
+
+                <div className='addD'>
+                    <label htmlFor='status'>Status</label>
+                    <input type='text' placeholder='Enter Status' className='formControl' value={status || ''} onChange={(e) => setStatus(e.target.value)}/>
+                </div>
+
                 <div className='addD'>
                     <label htmlFor='email'>Description</label>
                     <textarea type='text' placeholder='Enter description' className='formControl' value={description  || ''} onChange={(e) => setDescription(e.target.value)} />
                 </div>
+
                 <div className='addD'>
                     <label htmlFor='age'>Due Date</label>
                     <Datetime
@@ -79,10 +100,10 @@ const TaskDetails = () => {
                 </div>
                 <button className='submitBtn'>Update</button>
                 <button className='submitBtn' onClick={() => handleDelete(todos._id)}>Delete</button>
-              </form>
-          </div>
+            </form>
         </div>
-  )
+        </div>
+)
 }
 
 export default TaskDetails
