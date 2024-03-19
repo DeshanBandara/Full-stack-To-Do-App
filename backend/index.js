@@ -137,6 +137,7 @@ app.put('/updateTask/:id', (req, res) => {
     TodoModel.findByIdAndUpdate({_id: id},
         {
             task: req.body.task,
+            status: req.body.status,
             description: req.body.description,
             dueDate: req.body.dueDate,
         },
