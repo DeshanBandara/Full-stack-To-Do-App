@@ -9,21 +9,35 @@ const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const navigate = useNavigate()
+  const [error, setError] = useState()
 
   axios.defaults.withCredentials = true; // To connect with backend cookies
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    //Check whether fill all field
+    if(!email || !password ) {
+      setError('Please fill in all field!')
+      return
+    }
+    //Call backend API to register user
     axios.post(`http://localhost:3001/Login`, {email, password})
     .then(res => {
       //console.log(res.data)
       //navigate('/Login')
       if (res.data.Status === "Success") {
+        //Store user name in local storage
+        localStorage.setItem('userData', JSON.stringify({
+          username: res.data.username,
+        }))
         if (res.data.role === "admin") {
           navigate('/Dashboard')
         } else {
           navigate('/Home')
         }
+      } else {
+        setError('Invalid email address or password!')
       }
     })
     .catch(err => console.log(err))
@@ -58,6 +72,7 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
+            {error && <p className='error'>{error}</p>}
             <button className='submitBtn' type='submit'>Login</button>
             <p className='loginPara'>Don't have an account</p>
             <Link to={'/Register'}><button className='loginToRegisterBtn'>Register</button></Link>
