@@ -100,9 +100,12 @@ app.post('/add', (req, res) => {
 //Api for select items (Root handler)
 app.put(`/select/:id`, (req, res) => {
     const {id} = req.params;
-    const {updatedTask} = req.body;
 
-    TodoModel.findByIdAndUpdate({_id: id}, {check: true})
+    TodoModel.findById(id)
+    .then(todo => {
+        todo.check = !todo.check; //Toggle the check property
+        return todo.save()
+    })
     .then(result => res.json(result))
     .catch(err => res.json(err))
 })
