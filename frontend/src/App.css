@@ -4,6 +4,11 @@
   padding: 2rem;
   text-align: center;
 }*/
+
+body {
+  height: auto;
+}
+
 /*---------------------------------------------------------------- Landing Page ------------------------------------------------------------*/
 
 #landing {
@@ -17,6 +22,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 .bg {
@@ -45,14 +52,12 @@
 .landingName {
   color: #00cc99;
 }
-
 .landingPara {
   font-size: medium;
   font-weight: 300;
   letter-spacing: 1px;
   margin-left: 0.25rem;
 }
-
 .registerBtn {
   background: white;
   margin: 1rem;
@@ -82,96 +87,313 @@
 
 /*------------------------------------------------------------------ Register Page -------------------------------------------------------*/
 
-
-
-
- /*------------------------------------------------------------------ Create task -------------------------------------------------------*/
-  
- #create {
-  margin-top: 100px;
-}
-
-.containerCreate {
-  width: 80%;
+.container {
+  width: 40%;
   margin: 0 auto;
+  margin-top: 50px;
+  background: white;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 0 15px 10px rgba(0,0,0,0.07);
+}
+h2 {
+  font-size: 30px;
+  font-weight: 500;
+  text-align: center;
+}
+.formPara {
+  margin-left: 20px;
+  font-size: 15px;
+  font-weight: 200;
 }
 
+.fields{
+  margin-bottom: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.h2Span {
+  color:#00cc99;
+}
+.error{
+  color: red;
+  margin-top: 1rem;
+  text-align: center;
+}
 form {
-  background-color: #f2f2f2;
-  padding: 20px;
-  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-right: 20px;
+  justify-content: space-between;
+  margin-top: 10px;
 }
-
-.addD {
-  margin-bottom: 15px;
-}
-
-
-label {
+label{
+  font-weight: 300;
   display: block;
+  font-size: 20px;
   margin-bottom: 5px;
-  font-weight: bold;
+}
+.customLabel {
+  margin-left: 20px;
 }
 input {
-  max-width: 65rem;
-}
-
-.formControl {
-  width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
+  border-radius: 10px;
+  width: 95%;
+  border: 1px solid #00cc99;
+  margin-left: 0;
+  display: block;
+  flex-direction: column;
+}
+.customTextarea {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #00cc99;
+  font-family: poppins;
+  display: block;
+  width: 95%;
+  margin-right: 20px;
+}
+.formBtn {
+  padding: 10px;
+  width: 100px;
+  background-color: rgb(58, 58, 61);
+  color: white;
+  border-radius: 2rem;
+  cursor: pointer;
+  margin-top: 2px;
+  margin-left: 20px;
+}
+.formBtn:hover {
+  background: rgb(0, 0, 0);
+}
+.backBtn {
+  padding: 7px;
+  width: 50px;
+  background-color: #00cc99;
+  border: none;
+  color: white;
+  font-weight: 800;
+  border-radius: 2rem;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: 40px;
+}
+.backBtn:hover {
+  background: #1b8269;
 }
 
-.submitBtn {
-  background-color: #007bff;
+ /*------------------------------------------------------------------ Home page -------------------------------------------------------*/
+
+ .containerHome{
+  padding: 40px;
+  width: 75%;
+  margin: 0 auto;
+  border-radius: 20px;
+  margin-top: 50px;
+  background: white;
+  gap: 20px;
+  box-shadow: 0 0 15px 10px rgba(0,0,0,0.07);
+}
+.signOutBtn {
+  padding: 10px;
+  width: 100px;
+  background-color: #00cc99;
   color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 3px;
+  border-radius: 2rem;
+  cursor: pointer;
+  margin-top: 2px;
+  border: #00cc99;
+}
+.signOutBtn:hover {
+  background: #1b8269;
+}
+.detailSection {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 20px;
+  margin-bottom: 2rem;
+  margin-right: 20px;
+}
+.detailSection > div:first-child {
+  order: 1; /* Change the order of the first child to move it to the left */
+}
+.detailSection input {
+  margin-right: 20px;
+  margin-left: 10px;
+  width: 10%;
+  border-radius: 20px;
+}
+.detailSection select {
+  margin-right: 20px;
+  border-radius: 20px;
+  padding: 10px;
+  border-color: #00cc99;
   cursor: pointer;
 }
-
-.submitBtn:hover {
-  background-color: #0056b3;
+.addBtn {
+  padding: 10px;
+  width: 100px;
+  background-color: rgb(58, 58, 61);
+  color: white;
+  border-radius: 2rem;
+  cursor: pointer;
+  margin-top: 2px;
+}
+.addBtn:hover {
+  background: rgb(0, 0, 0);
+}
+.tableContainer {
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+table {
+  border-collapse: collapse;
+  text-align: center;
+  width: 100%;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+th {
+  padding: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 25px;
+  font-weight: 400;
+  color: #4b4e4d;
+}
+td{
+  color: #636766;
+}
+tr {
+  border: 1px solid #00cc99;
+}
+.iconNotChecked {
+  font-size: 20px;
+  color: rgb(207, 207, 207);
+  cursor: pointer;
+}
+.iconChecked {
+  font-size: 20px;
+  color: rgb(157, 156, 156);
+  cursor: pointer;
+}
+.iconTrash {
+  font-size: 20px;
+  color: rgb(253, 96, 96);
+  cursor: pointer;
+  margin-right: 10px;
+}
+.iconPencil {
+  font-size: 20px;
+  color: rgb(41, 191, 191);
+  cursor: pointer;
+  margin-right: 20px;
+}
+.dateTime{
+  border: none;
+  cursor: default;
+}
+.selectionIcon{
+  text-align: right;
+}
+.mrkStatus {
+  margin-right: 20px;
 }
 
-/*--------------------------------------------------------------------------------------------------------------------------*/
+ /*------------------------------------------------------------------ Responsiveness -------------------------------------------------------*/
 
 @media screen and (max-width:840px) {
   .bg {
-      right: -10vw;
+    right: -10vw;
   }
-  .landingContent{
-      font-size: 10vw;
+  .landingContent {
+    font-size: 10vw;
   }
-  .hello{
-      font-size: 4.5vw;
+  .hello {
+    font-size: 4.5vw;
   }
-  .containerCreate {
+  .container {
     width: 90%;
+    margin-left: 20px;
+  }
+  .registerBtn,
+  .loginBtn {
+    padding: 0.5rem 1rem;
+    font-size: 12px; 
+    margin: 0.5rem; 
+  }
+   .detailSection {
+    flex-direction: column; 
+    align-items: flex-start; 
   }
 
-  form {
-    padding: 15px;
+  .detailSection > div {
+    margin-bottom: 10px; 
   }
 
-  input {
-    max-width: 85%;
+  .detailSection input {
+    width: 92%;
+    margin-right: 0; 
+    margin-left: 0;
+  }
+
+  .detailSection select {
+    width: 100%; 
+    margin-top: 10px; 
+    margin-bottom: 10px;
+  }
+  .addBtn {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+
+  .tableContainer {
+    overflow-x: auto; 
+  }
+  .table {
+    font-size: 14px;
   }
 }
 
+
 @media screen and (max-width:480px) {
   .bg {
-      right: -10vw;
+    right: -10vw;
   }
-
   .formControl {
     padding: 8px;
   }
-
   .submitBtn {
     padding: 8px 15px;
   }
-
+  .container {
+    width: 250px; 
+    padding: 30px; 
+    margin-left: 20px;
+  }
+  .detailSection {
+    padding: 10px; 
+  }
+  .detailSection input,
+  .detailSection select {
+    font-size: 14px; 
+  }
+  .addBtn {
+    font-size: 12px;
+    padding: 8px;
+  }
+  table {
+    font-size: 12px; 
+  }
+  th, td {
+    padding: 8px;
+  }
 }
