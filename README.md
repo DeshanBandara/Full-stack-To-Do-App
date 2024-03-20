@@ -3,6 +3,19 @@
 ## Description
 This To-Do App is a full-stack web application designed to help users manage their tasks effectively. The application features a user-friendly interface with intuitive functionalities for creating, updating, and deleting tasks. Users can organize their tasks based on priority, due date, and status, providing a seamless task management experience.
 
+## How to Run
+To run the project, follow these steps:
+
+## Installed Packages
+To run the project, make sure you have installed all the required dependencies. You can install them using the following command:
+npm install
+
+### Frontend
+npm run dev
+
+### Frontend
+npm run dev
+
 ## Features
 - Task Management: Users can create, update, and delete tasks, organizing them based on priority and due date.
 - User Authentication: Secure user authentication system ensuring data privacy and security.
