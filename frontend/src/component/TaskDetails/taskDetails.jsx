@@ -6,6 +6,7 @@ import 'react-datetime/css/react-datetime.css';
 import { useParams, useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { BsArrowLeft } from 'react-icons/bs';
 
 const TaskDetails = () => {
     const {id} = useParams()
@@ -59,38 +60,36 @@ const handleDelete = () => {
 
 return (
     <div id='create'>
-        <div className='containerCreate'>
-                <div>
-                <Link to={'/Home'}><button>Back</button></Link>
-                </div>
+        <div className='container'>
+            <div>
+            <Link to={'/Home'}><button className='backBtn'><BsArrowLeft /></button></Link>
+            </div>
 
             <form onSubmit={Update}>
                 <div>
-                    <h2>Task Details</h2>
+                    <h2>Task <span className='h2Span'>Details</span></h2>
                 </div>
 
-                {error && <div className='error'>{error}</div>}
-
-                <div className='addD'>
-                    <h3 style={{color: check === 'Complete' ? 'green' : 'red'}}>{check}</h3>
+                <div>
+                    <label style={{color: check === 'Complete' ? '#00cc99' : 'red'}} className='customLabel'>{check}</label>
                 </div>
                 
-                <div className='addD'>
+                <div className='fields'>
                     <label htmlFor='name'>Title</label>
                     <input type='text' placeholder='Enter Task' className='formControl' value={task || ''} onChange={(e) => setTask(e.target.value)}/>
                 </div>
 
-                <div className='addD'>
+                <div className='fields'>
                     <label htmlFor='status'>Status</label>
                     <input type='text' placeholder='Enter Status' className='formControl' value={status || ''} onChange={(e) => setStatus(e.target.value)}/>
                 </div>
 
-                <div className='addD'>
+                <div className='fields'>
                     <label htmlFor='email'>Description</label>
-                    <textarea type='text' placeholder='Enter description' className='formControl' value={description  || ''} onChange={(e) => setDescription(e.target.value)} />
+                    <textarea type='text' placeholder='Enter description' className='customTextarea' value={description  || ''} onChange={(e) => setDescription(e.target.value)} />
                 </div>
 
-                <div className='addD'>
+                <div className='fields'>
                     <label htmlFor='age'>Due Date</label>
                     <Datetime
                         value={dueDate}
@@ -98,8 +97,9 @@ return (
                         inputProps={{ placeholder: 'Select Date and Time' }}
                     />
                 </div>
-                <button className='submitBtn'>Update</button>
-                <button className='submitBtn' onClick={() => handleDelete(todos._id)}>Delete</button>
+                {error && <div className='error'>{error}</div>}<br/>
+                <button className='formBtn'>Update</button><br/>
+                <button className='formBtn' onClick={() => handleDelete(todos._id)}>Delete</button><br/>
             </form>
         </div>
         </div>

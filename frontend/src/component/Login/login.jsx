@@ -1,9 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
-import './login.css'
+import '../../App.css'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom';
+import { BsArrowLeft } from 'react-icons/bs';
 
 const Login = () => {
   const [email, setEmail] = useState();
@@ -45,37 +46,39 @@ const Login = () => {
 
   return (
     <section id='login'>
-      <div className='containerLogin'>
+      <div className='container'>
+          <div>
+            <Link to={'/'}><button className='backBtn'><BsArrowLeft /></button></Link>
+          </div>
         <div>
-          <h2 className='loginH2'>Login</h2>
-          <hr className='loginHr' />
-          <form className='loginForm' onSubmit={handleSubmit}>
-            <div className='loginDiv'>
-              <label className='emailLabel' htmlFor='email'>Email</label>
+          <h2>Login</h2>
+          <form onSubmit={handleSubmit}>
+            <div className='fields'>
+              <label htmlFor='email'>Email</label>
               <input
                 type='text'
                 placeholder='Enter Email'
                 autoComplete='off'
                 name='email'
-                className='emailInput'
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            <div>
-              <label className='passwordLabel' htmlFor='password'>Password</label>
+            <div className='fields'>
+              <label htmlFor='password'>Password</label>
               <input
                 type='password'
                 placeholder='Enter Password'
                 autoComplete='off'
                 name='password'
-                className='passwordInput'
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            {error && <p className='error'>{error}</p>}
-            <button className='submitBtn' type='submit'>Login</button>
-            <p className='loginPara'>Don't have an account</p>
-            <Link to={'/Register'}><button className='loginToRegisterBtn'>Register</button></Link>
+            {error && <p className='error'>{error}</p>}<br/>
+            <button className='formBtn' type='submit'>Login</button><br/>
+            <div>
+            {/*<Link to={'/Register'}><button className='formBtn'>Register</button></Link>
+            <p className='formPara'>Don't have an account</p>*/}
+            </div>
           </form>
         </div>
       </div>

@@ -1,8 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
-import './register.css'
+import '../../App.css'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
+import { BsArrowLeft } from 'react-icons/bs';
 
 const Register = () => {
   const [name, setName] = useState()
@@ -51,15 +52,15 @@ const Register = () => {
 
   return (
     <section id='register'>
-      <div className='containerRegister'>
+      <div className='container'>
+          <div>
+            <Link to={'/'}><button className='backBtn'><BsArrowLeft /></button></Link>
+          </div>
         <div>
+          <h2>create your <span className='h2Span'>to-do</span> account</h2>
+          <form onSubmit={handleSubmit}>
 
-          <h2 className='registerH2'>Register</h2>
-          <hr className='registerHr' />
-
-          <form className='registerForm' onSubmit={handleSubmit}>
-
-            <div className='registerDiv'>
+            <div className='fields'>
               <label className='nameLabel' htmlFor='name'>Name</label>
               <input
                 type='text'
@@ -71,7 +72,7 @@ const Register = () => {
               />
             </div>
 
-            <div className='registerDiv'>
+            <div className='fields'>
               <label className='emailLabel' htmlFor='email'>Email</label>
               <input
                 type='text'
@@ -83,7 +84,7 @@ const Register = () => {
               />
             </div>
 
-            <div className='registerDiv'>
+            <div className='fields'>
               <label className='passwordLabel' htmlFor='name'>Password</label>
               <input
                 type='password'
@@ -95,7 +96,7 @@ const Register = () => {
               />
             </div>
 
-            <div className='registerDiv'>
+            <div className='fields'>
               <label className='passwordLabel' htmlFor='name'>Password</label>
               <input
                 type='password'
@@ -108,11 +109,14 @@ const Register = () => {
             </div>
 
             {error && <p className='error'>{error}</p>}
-
-            <button className='registerFormBtn' type='submit'>Register</button>
-            <p className='registerPara'>Already have an account</p>
-            <Link to={'/Login'}><button className='registerToLoginBtn'>Login</button></Link>
-
+            <br/>
+            <button className='formBtn' type='submit'>Register</button><br />
+            <div>
+            {/*<Link to={'/Login'}><button className='formBtn'>Login</button></Link> 
+            <p className='formPara'>Already have an account</p>*/}
+            </div>
+            
+            
           </form>
         </div>
       </div>

@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import './dashboard.css'
+import '../../App.css'
 import { Link, useNavigate } from 'react-router-dom'
 
 const Dashboard = () => {

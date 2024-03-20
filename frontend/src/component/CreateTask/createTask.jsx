@@ -2,9 +2,10 @@
 import React, { useState } from 'react'
 import Datetime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
-import './createTask.css'
+import '../../App.css'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
+import { BsArrowLeft } from 'react-icons/bs';
 
 const CreateTask = () => {
   const [task, setTask] = useState('')
@@ -33,37 +34,32 @@ const CreateTask = () => {
 
   return (
     <div className='create_form'>
-        <div id='create'>
+        <div className='container'>
+        <div>
+          <Link to={'/Home'}><button className='backBtn'><BsArrowLeft /></button></Link>
+        </div>
           <div className='containerCreate'>
-
-              <div>
-                <Link to={'/Home'}><button>Back</button></Link>
-              </div>
-
               <form onSubmit={handleSubmit}>
                   <div>
-                    <h2>Add Task</h2>
+                    <h2>Add <span className='h2Span'>Task</span></h2>
                   </div>
-
                   
-                  {error && <div className='error'>{error}</div>}
-                  
-                  <div className='addD'>
+                  <div className='fields'>
                       <label htmlFor='name'>Task Title</label>
                       <input type='text' placeholder='Enter name' className='formControl' onChange={(e) => setTask(e.target.value)} />
                   </div>
 
-                  <div className='addD'>
+                  <div className='fields'>
                       <label htmlFor='name'>Status</label>
                       <input type='text' placeholder='Enter status' className='formControl' onChange={(e) => setStatus(e.target.value)} />
                   </div>
 
-                  <div className='addD'>
+                  <div className='fields'>
                       <label htmlFor='email'>Description</label>
-                      <textarea type='text' placeholder='Enter description' className='formControl' onChange={(e) => setDescription(e.target.value)} />
+                      <textarea type='text' placeholder='Enter description' className='customTextarea' onChange={(e) => setDescription(e.target.value)} />
                   </div>
 
-                  <div className='addD'>
+                  <div className='fields'>
                       <label htmlFor='age'>Due Date</label>
                       <Datetime
                         value={dueDate}
@@ -71,8 +67,8 @@ const CreateTask = () => {
                         inputProps={{ placeholder: 'Select Date and Time' }}
                       />
                   </div>
-
-                  <button className='submitBtn'>Add</button>
+                  {error && <div className='error'>{error}</div>}<br/>
+                  <button className='formBtn'>Add</button><br/>
               </form>
           </div>
         </div>

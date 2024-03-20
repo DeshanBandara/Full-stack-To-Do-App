@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import './updateTask.css'
+import '../../App.css'
 
 const UpdateTask = () => {
   return (

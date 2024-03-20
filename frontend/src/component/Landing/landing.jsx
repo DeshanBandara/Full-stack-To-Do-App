@@ -12,7 +12,7 @@ const Landing = () => {
             <div className='landingContent'>
                 <span className='hello'>Hello,</span>
                 <span className='landingText'>What's <span className='landingName'>Next?</span></span>
-                <p className='landingPara'>This is your to-do application. Now you can manage your work for better management.</p>
+                <p className='landingPara'>This is your to-do application. Now you can manage your works with your todo app.</p>
                 <div className='btnContainer'>
                     <Link to={'/Register'}><button className='registerBtn'>Register</button></Link>
                     <Link to={'/Login'}><button className='loginBtn'>Login</button></Link>
